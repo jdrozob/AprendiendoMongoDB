@@ -49,7 +49,7 @@ switch ($action) {
                 <h1>Mi Blog</h1>
                 <?php if ($action === 'show_form'): ?>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                    <h3>T&Iacute;culo</h3>
+                    <h3>Art&Iacute;culo</h3>
                     <p>
                         <input type="text" name="title" id="title"/>
                     </p>
@@ -61,7 +61,7 @@ switch ($action) {
                 </form>
                 <?php else: ?>
                 <p>
-                    Art&Aacute;culo salvado. _id:<?php echo $article['_id']; ?>
+                    Art&Iacute;culo salvado. _id:<?php echo $article['_id']; ?>
                     <a href="Blog CRUD.php"> &iquest;Escribir otro?</a>
                 </p>
                 <?php endif; ?>
