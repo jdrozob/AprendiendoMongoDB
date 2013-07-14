@@ -13,11 +13,12 @@ switch ($action) {
              * $connection = new Mongo();
              * $collection = $conection->miBlog->articles;
              */
-            $article = array();
+            $article = array();    
             $article['title'] = $_POST['title'];
             $article['content'] = $_POST['content'];
             $article['saved_at'] = new MongoDate();
             $collection->insert($article);
+            echo "Operación de inserción completada";
         } catch (MongoConnectionException $e) {
             die("No se ha podido conectar a la base de datos " . $e->getMessage());
         } catch (MongoException $e) {
@@ -25,7 +26,7 @@ switch ($action) {
         }
         /* Código alternativo si queremos que el método insert espere respuesta de MongoDB:
          * try {
-         * $status = $connection->insert(array('title' => 'Titulo Blog', 'content' => 'Contenido BLog'), array('safe' => True));
+         * $status = $collection->insert($article, array('safe' => True));
          * echo "Operación de inserción completada";
          * } catch (MongoCursorException $e) {
          * die("Insert ha fallado " . $e->getMessage());
