@@ -51,7 +51,7 @@ switch ($action) {
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <h3>Art&Iacute;culo</h3>
                     <p>
-                        <input type="text" name="title" id="title"/>
+                        <input type="text" name="title" id="title"></input>
                     </p>
                     <h3>Contenido</h3>
                     <textarea name="content" rows="20"></textarea>
