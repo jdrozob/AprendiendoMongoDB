@@ -32,6 +32,19 @@ switch ($action) {
          * die("Insert ha fallado " . $e->getMessage());
          * }
          */
+        
+        /* Cuándo hacemos un insert 'safe' podemos utilizar un parámetro timeout opcional:
+         * try {
+         * $collection->insert($article, array('safe' => True, 'timeout' => True));
+         * } catch (MongoCursorException $e) {
+         * die("EL tiempo de espera para Insert ha finalizado " . $e->getMessage());
+         * }
+         */
+        
+        /* Podemos añadir un _id personalizado con un insert:
+         *  
+         * 
+         */
         break;
     case 'show form':
     default :
