@@ -24,7 +24,11 @@ switch ($action) {
         } catch (MongoException $e) {
             die("No se han podido insertar los datos " . $e->getMessage());
         }
-        /* Código alternativo si queremos que el método insert espere respuesta de MongoDB:
+        /* Código alternativo si queremos que el método insert espere respuesta de MongoDB.
+         * MongoDB por defecto es asincrono con el metodo insert, por lo tanto éste último
+         * no va a esperar una respuesta del insert que se hace directamente en MongoDB, sino 
+         * que va a seguir con la siguiente linea de codigo. El safe => True garantiza que 
+         * se realice primero el insert y luego se siga con el codigo:
          * try {
          * $status = $collection->insert($article, array('safe' => True));
          * echo "Operación de inserción completada";
@@ -33,7 +37,8 @@ switch ($action) {
          * }
          */
         
-        /* Cuándo hacemos un insert 'safe' podemos utilizar un parámetro timeout opcional:
+        /* Cuándo hacemos un insert 'safe' podemos utilizar un parámetro timeout opcional
+         * que nos retorna tambien el tiempo en el que se realiza el insert:
          * try {
          * $collection->insert($article, array('safe' => True, 'timeout' => True));
          * } catch (MongoCursorException $e) {
@@ -42,7 +47,9 @@ switch ($action) {
          */
         
         /* Podemos añadir un _id personalizado con un insert. Este código no es pensado en el blog,
-         * es un ejemplo de un _id personalizado. El _id se crea usando la funcion hash de timestamp:
+         * es un ejemplo de un _id personalizado. El _id se crea usando la funcion hash de timestamp.
+         * En estos casos no se asegura la unicidad del _id, por lo tanto si se quiere asegurar esto
+         * debemos hacer safe => True obligatoriamente para que éste nos asegure el insert:
          * $username = 'Juan';
          * try {
          * $document = array('_id' => hash('sha1', $username.time()),
