@@ -41,9 +41,16 @@ switch ($action) {
          * }
          */
         
-        /* Podemos añadir un _id personalizado con un insert:
-         *  
-         * 
+        /* Podemos añadir un _id personalizado con un insert. Este código no es pensado en el blog,
+         * es un ejemplo de un _id personalizado. El _id se crea usando la funcion hash de timestamp:
+         * $username = 'Juan';
+         * try {
+         * $document = array('_id' => hash('sha1', $username.time()),
+         * 'user' => $username, 'visited' => 'homepage.php');
+         * $collection->insert($document, array(safe => True));
+         * } catch (MongoCursorException $e) {
+         * die('Failed to insert '. $e->getMessage());
+         * }
          */
         break;
     case 'show form':
