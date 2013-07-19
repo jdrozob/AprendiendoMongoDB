@@ -2,7 +2,7 @@
 /*
  * En este archivo se creara un blog el cual implementara una conexion con MongoDB y se realizaran operaciones CRUD
  */
-$action = (!empty($_POST['btn_submit']) && ($_POST['btn_submit'] === 'Salvar')) ? 'save_article' : 'show_form';
+$action = (!empty($_POST['btn_submit']) && ($_POST['btn_submit'] === 'Guardar')) ? 'save_article' : 'show_form';
 switch ($action) {
     case 'save_article':
         try {
@@ -74,7 +74,7 @@ switch ($action) {
     <body>
         <div id="contentarea">
             <div id="innercontentarea">
-                <h1>Mi Blog</h1>
+                <h1>Blog de mary</h1>
                 <?php if ($action === 'show_form'): ?>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <h3>Art&Iacute;culo</h3>
@@ -84,12 +84,12 @@ switch ($action) {
                     <h3>Contenido</h3>
                     <textarea name="content" rows="20"></textarea>
                     <p>
-                        <input type="submit" name="btn_submit" value="Salvar"/>
+                        <input type="submit" name="btn_submit" value="Guardar"/>
                     </p>
                 </form>
                 <?php else: ?>
                 <p>
-                    Art&Iacute;culo salvado. _id:<?php echo $article['_id']; ?>
+                    Art&Iacute;culo guardado. _id:<?php echo $article['_id']; ?>
                     <a href="Blog CRUD.php"> &iquest;Escribir otro?</a>
                 </p>
                 <?php endif; ?>
