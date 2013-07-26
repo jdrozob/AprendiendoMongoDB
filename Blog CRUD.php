@@ -74,7 +74,7 @@ switch ($action) {
     <body>
         <div id="contentarea">
             <div id="innercontentarea">
-                <h1>Blog de mary</h1>
+                <h1>Nueva entrada</h1>
                 <?php if ($action === 'show_form'): ?>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <h3>Art&Iacute;culo</h3>
