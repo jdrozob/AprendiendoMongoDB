@@ -26,7 +26,7 @@ $cursor = $collection->find();
                 <p>
                     <?php echo substr($article['content'], 0, 20) . '...'; ?>
                 </p>
-                <a href="blog.php?id = <?php echo $article['_id']; ?>">Leer M&aacute;s</a>
+                <a href="verArticulo.php?id = <?php echo $article['_id']; ?>">Leer M&aacute;s</a>
                 <?php endwhile; ?>
             </div>
         </div>
