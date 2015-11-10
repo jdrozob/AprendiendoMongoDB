@@ -1,6 +1,7 @@
 <?php
 /*
  * En este archivo se creara un blog el cual implementara una conexion con MongoDB y se realizaran operaciones CRUD
+ * Nuevo comentario
  */
 $action = (!empty($_POST['btn_submit']) && ($_POST['btn_submit'] === 'Guardar')) ? 'save_article' : 'show_form';
 switch ($action) {
